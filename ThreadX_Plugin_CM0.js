@@ -112,7 +112,7 @@ function updateSemaphores()
         var name      = Debug.evaluate("(char*)((TX_SEMAPHORE*)" + current + ")->tx_semaphore_name");
         var waiting   = "";
 
-        if (semaphore.tx_mutex_suspension_list != 0)
+        if (semaphore.tx_semaphore_suspension_list != 0)
             waiting = Debug.evaluate("(char*)((TX_THREAD*)" + semaphore.tx_semaphore_suspension_list + ")->tx_thread_name");
 
         Threads.add2(
