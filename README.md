@@ -5,10 +5,10 @@ Segger Studio allows to use custom JavaScript program, so called "Threads Script
 
 There are sample thread awareness scripts, located in the Segger Studio installation folder, Windows path example:
 ```
-%ProgramFiles%\SEGGER\SEGGER Embedded Studio 8.10b\samples\
+%ProgramFiles%\SEGGER\SEGGER Embedded Studio 8.xx\samples\
 ```
 
-To use the thread awareness, set the path to the thread script in Project options --> Debug --> Threads Script File, <br> for example ```$(ProjectDir)/ThreadX_Plugin_CM0.js```
+To use the thread awareness, set the path to the thread script in Project options --> Debug --> Threads Script File, <br> for example ```$(ProjectDir)/ThreadX_Plugin.js```
 
 ### References
 

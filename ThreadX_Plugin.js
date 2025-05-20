@@ -23,7 +23,7 @@ var TABLE_MUTEXES    = "Mutexes";
 
 function init()
 {
-    Threads.setColumns("Thread", "Priority", "State", "Runs", "Stack Size", "Max Stack Usage");
+    Threads.setColumns("Thread", "Priority", "State", "Runs", "Stack Size", "Max Stack Usage", "Stack Start");
     Threads.setSortByNumber("Priority");
     Threads.setColor("State", "Ready", "Executing", "Waiting");
 
@@ -87,6 +87,8 @@ function updateThreads()
                               ? thread.tx_thread_stack_end - thread.tx_thread_stack_highest_ptr
                               : "N/A";
 
+        var stackStartAddr = "0x" + thread.tx_thread_stack_start.toString(16).toUpperCase();
+
         Threads.add(
             name,
             thread.tx_thread_priority,
@@ -94,7 +96,8 @@ function updateThreads()
             thread.tx_thread_run_count,
             thread.tx_thread_stack_size + 4,
             maxStackUsage + 1,
-            current == executing ? undefined : current);
+            stackStartAddr,
+            0);
 
         current = thread.tx_thread_created_next;
     } while (current != first);
