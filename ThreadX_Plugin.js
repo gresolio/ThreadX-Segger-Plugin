@@ -23,8 +23,11 @@ var TABLE_MUTEXES    = "Mutexes";
 
 function init()
 {
-    Threads.setColumns("Thread", "Priority", "State", "Runs", "Stack Size", "Max Stack Usage", "Stack Start");
+    Threads.setColumns("Thread", "Priority", "State", "Runs", "Stack Size", "Stack Max", "Stack Start");
     Threads.setSortByNumber("Priority");
+    Threads.setSortByNumber("Runs");
+    Threads.setSortByNumber("Stack Size");
+    Threads.setSortByNumber("Stack Max");
     Threads.setColor("State", "Ready", "Executing", "Waiting");
 
     Threads.setColumns2(TABLE_SEMAPHORES, "Semaphore", "Count", "Suspended");
